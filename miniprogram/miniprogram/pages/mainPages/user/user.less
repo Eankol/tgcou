@@ -1,0 +1,42 @@
+/* pages/mainPages/user/user.wxss */
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+.mainView{
+  margin: 5%;
+  .profile{
+    border-bottom: 2px #eee solid;
+    border-radius: 8px;
+    box-shadow: 0px 0px 2px #ddd;
+    padding:10px;
+    image{
+      width: 80px;
+      height:80px;
+      display: inline-flex;
+      //border: #ddd 1px solid;
+      border-radius: 5px;
+    }
+    view{
+      height: 80px;
+      display: inline-flex;
+      vertical-align: top;
+      padding-left: 20px;
+      text{
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 50px;
+        display: block;
+        color: #666;
+      }
+    }
+  }
+}
+.cus_calendar {
+  margin-top: 20px;
+}

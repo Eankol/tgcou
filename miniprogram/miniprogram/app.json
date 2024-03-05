@@ -1,9 +1,10 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/logs/logs",
-    "pages/tools/tools",
-    "pages/tools/t/bmi/bmi"
+    "pages/mainPages/tools/tools",
+    "pages/mainPages/tools/t/bmi/bmi",
+    "pages/mainPages/user/user",
+    "pages/log/log",
+    "pages/login/login"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -23,15 +24,10 @@
     "custom": true,
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "text": "组件"
+        "pagePath": "pages/mainPages/tools/tools"
       },
       {
-        "pagePath": "pages/tools/tools"
-      },
-      {
-        "pagePath": "pages/logs/logs",
-        "text": "接口"
+        "pagePath": "pages/mainPages/user/user"
       }
     ]
   },
@@ -44,6 +40,5 @@
     }
   },
   "componentFramework": "glass-easel",
-  "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
+  "sitemapLocation": "sitemap.json"
 }

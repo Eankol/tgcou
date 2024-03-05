@@ -1,0 +1,18 @@
+<navigation-bar title="我的" back="{{false}}" background="#fff" color="#333"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="mainView">
+    <view class="profile">
+      <image src="{{userInfo.avatarUrl?userInfo.avatarUrl:'/assets/icon_r/xingbie.png'}}" />
+      <view>
+        <text>{{userInfo.userName}}</text>
+      </view>
+    </view>
+    <view class="cus_calendar">
+      <van-calendar show-title="{{false}}" poppable="{{ false }}" min-date="{{ minDate }}" max-date="{{ maxDate }}" show-confirm="{{ false }}" class="calendar" row-height="30"/>
+    </view>
+
+  </view>
+  <view>
+    <button bind:tap="showLog">log</button>
+  </view>
+</scroll-view>

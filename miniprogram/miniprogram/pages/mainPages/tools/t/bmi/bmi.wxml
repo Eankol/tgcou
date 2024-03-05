@@ -1,0 +1,79 @@
+<!--pages/tools/t/bmi.wxml-->
+<navigation-bar title="{{title}}" background="#fff" color="#333"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+<view class="msgInfo">
+  <view>
+    <van-icon wx:if="{{ sn==='bmi' }}" name="/assets/icon_gym/tice.png" size="100px" />
+  <van-icon wx:if="{{ sn==='bmr' }}" name="/assets/icon_gym/danbaifen.png" size="100px" />
+  <van-icon wx:if="{{ sn==='bfr' }}" name="/assets/icon_gym/jiankangshipin.png" size="100px" />
+  </view>
+<text>{{bInfo.msg}}</text>
+</view>
+<view wx:if="{{ sn!='bmi' }}">
+  <!--性别，年龄-->
+  <view class="param_tip">
+    <text>性别：</text><picker class="cus_picker" value="{{ cdata.p_g }}"  bindchange="bindDateChange1" range="{{gender}}" range-key="text">
+      <view class="picker">
+        {{gender[cdata.p_g].text}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="param_tip">
+    <text>出生年月：</text><picker class="cus_picker" fields="month" mode="date" value="{{currentDate}}" start="1899-01" end="2024-01" bindchange="bindDateChange">
+      <view class="picker">
+        {{currentDate}}
+      </view>
+    </picker>
+  </view>
+
+</view>
+<view>
+  <!--身高体重，bmi-->
+  <view class="param_tip">身高：</view>
+  <view class="tipMsg">{{cdata.p_t}}<text>（ CM ）</text></view>
+  <view class="slider">
+    <van-slider bar-height="4px" active-color="#335274" min="30" max="260" value="{{ cdata.p_t }}" use-button-slot bind:drag="onDragT" step="1">
+      <view class="custom-button" slot="button">
+        <van-icon name="/assets/icon_gym/StomachRuler.png" size="20px" />
+      </view>
+    </van-slider>
+  </view>
+  <view class="param_tip">体重：</view>
+  <view class="tipMsg">{{cdata.p_wt}}<text>（ KG ）</text></view>
+  <view class="slider">
+    <van-slider bar-height="4px" active-color="#335274" min="10" max="300" value="{{ cdata.p_wt }}" use-button-slot bind:drag="onDrag" step="0.5">
+      <view class="custom-button" slot="button">
+        <van-icon name="/assets/icon_gym/StomachRuler.png" size="20px" />
+      </view>
+    </van-slider>
+  </view>
+</view>
+<view wx:if="{{ sn==='bfr' }}"><!--腰围-->
+  <view class="param_tip">腰围：
+    <view style="display:inline-block;"><van-checkbox value="{{ disableWl }}" bind:change="disonChange" shape="square" checked-color="#335274">我不知道</van-checkbox></view>
+  </view>
+  <view class="tipMsg">{{cdata.p_wl}}<text>（ CM ）</text></view>
+  <view class="slider">
+    <van-slider disabled="{{disableWl}}" bar-height="4px" active-color="#335274" min="30" max="280" value="{{ cdata.p_wl }}" use-button-slot bind:drag="onDragL" step="1">
+      <view class="custom-button" slot="button">
+        <van-icon name="/assets/icon_gym/StomachRuler.png" size="20px" />
+      </view>
+    </van-slider>
+  </view>
+</view>
+<view class="sub_btn">
+  <van-button icon="orders-o" color="#335274" type="primary" bind:click="doCal" disabled="{{disabledBtn}}">开始计算</van-button>
+</view>
+<view class="res_area" wx:if="{{res.value?true:false}}">
+  <view class="res_title">结果：</view>
+  <view class="res_info">
+    {{sn=='bmi'?'BMI值':sn=='bmr'?'基础代谢':'体脂率'}}约为：<text>{{res.value}}</text>
+  </view>
+  <view class="slider">
+    <van-progress pivot-text="{{res.res}}" color="{{res.color}}" percentage="{{res.process}}" />
+  </view>
+  <view class="res_tip"><text>{{bInfo.tip}}</text></view>
+
+</view>
+</scroll-view>
