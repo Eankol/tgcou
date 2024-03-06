@@ -1,4 +1,4 @@
-<navigation-bar title="系统日志" background="#fff" color="#333"></navigation-bar>
+<navigation-bar title="日志" back="{{true}}" background="#fff" color="#333"></navigation-bar>
 <scroll-view class="scrollarea" scroll-y type="list">
 <text wx:for="{{log}}" wx:key="index">
 {{item.date}}, timeStamp:{{item.timeStamp}}

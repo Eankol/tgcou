@@ -1,0 +1,50 @@
+<!--pages/mainPages/user/children/bodyInfo/bodyInfo.wxml-->
+<navigation-bar title="健康数据" back="{{true}}" background="#fff" color="#333"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="mainView">
+    <view class="titlePro">
+      <van-icon name="{{uesrBodyInfo.gender==1?'/assets/icon_r/Boy.png':uesrBodyInfo.gender==2?'/assets/icon_r/Girl.png':'/assets/icon_r/wuxingbie.png'}}" size="80px" />
+    </view>
+    <view>
+      <view class="inputBox">
+        <text>生日</text>
+        <picker disabled="{{editIndex==1?false:true}}" class="cus_picker" fields="month" mode="date" value="{{uesrBodyInfo.bday?uesrBodyInfo.bday:'2024-03'}}" start="1899-01" end="2024-03" bindchange="bindChange">
+          <view class="picker">
+            {{uesrBodyInfo.bday?uesrBodyInfo.bday:'2024-03'}}
+          </view>
+        </picker>
+      </view>
+      <view bind:tap="tapEdit" class="editBtn" data-index='1'>{{editIndex==1?'保存':'编辑'}}</view>
+    </view>
+    <view>
+      <view class="inputBox">
+      <text>性别</text>
+        <van-radio-group bind:change="bindChange" disabled="{{editIndex==0?false:true}}" value="{{ uesrBodyInfo.gender?uesrBodyInfo.gender==2?'2':'1':'' }}">
+          <van-radio name="2" checked-color="#335274">女</van-radio>
+          <van-radio name="1" checked-color="#335274">男</van-radio>
+        </van-radio-group>
+      </view>
+      <view bind:tap="tapEdit" class="editBtn" data-index='0'>{{editIndex==0?'保存':'编辑'}}</view>
+    </view>
+    <view>
+      <view class="inputBox">
+        <van-field bind:change="bindChange" disabled="{{editIndex==2?false:true}}" value="{{ uesrBodyInfo.height?uesrBodyInfo.height:'' }}" type="number" label="身高(CM)" placeholder="请输入" maxlength="3" border="{{ false }}" />
+      </view>
+      <view bind:tap="tapEdit" class="editBtn" data-index='2'>{{editIndex==2?'保存':'编辑'}}</view>
+    </view>
+    <view>
+      <view class="inputBox">
+        <van-field bind:change="bindChange" disabled="{{editIndex==3?false:true}}" value="{{ uesrBodyInfo.weight?uesrBodyInfo.weight:'' }}" type="digit" label="体重(KG)" placeholder="请输入" maxlength="6" border="{{ false }}" />
+      </view>
+      <view bind:tap="tapEdit" class="editBtn" data-index='3'>{{editIndex==3?'保存':'编辑'}}</view>
+    </view>
+    <view>
+      <view class="inputBox">
+        <van-field bind:change="bindChange" disabled="{{editIndex==4?false:true}}" value="{{ uesrBodyInfo.waist?uesrBodyInfo.waist:'' }}" type="number" label="腰围(CM)" placeholder="请输入" maxlength="3" border="{{ false }}" />
+      </view>
+      <view bind:tap="tapEdit" class="editBtn" data-index='4'>{{editIndex==4?'保存':'编辑'}}</view>
+    </view>
+    <text class="pageTip">*注意：该数据仅存在于本地</text>
+  </view>
+
+</scroll-view>

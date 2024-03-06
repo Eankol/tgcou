@@ -4,7 +4,8 @@
     "pages/mainPages/tools/t/bmi/bmi",
     "pages/mainPages/user/user",
     "pages/log/log",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/mainPages/user/children/bodyInfo/bodyInfo"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -18,7 +19,9 @@
     "van-slider": "@vant/weapp/slider/index",
     "van-progress": "@vant/weapp/progress/index",
     "van-checkbox": "@vant/weapp/checkbox/index",
-    "van-checkbox-group": "@vant/weapp/checkbox-group/index"
+    "van-checkbox-group": "@vant/weapp/checkbox-group/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index"
   },
   "tabBar": {
     "custom": true,

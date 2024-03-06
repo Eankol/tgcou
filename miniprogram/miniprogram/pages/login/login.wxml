@@ -8,7 +8,7 @@
       </button>
       <view class="paramArea">
       <text class="inputTip">昵称</text>
-      <input type="text" value="{{userInfo.userName}}" placeholder="16个字符以内" maxlength="16" bindblur="getUserName" />
+      <input type="text" value="{{userInfo.userName}}" placeholder="12个字符以内" maxlength="12" bindblur="getUserName" />
       </view>
       <view>
         <button bind:tap="setUserInfo">授权</button>

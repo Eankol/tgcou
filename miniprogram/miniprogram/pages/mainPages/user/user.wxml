@@ -2,13 +2,19 @@
 <scroll-view class="scrollarea" scroll-y type="list">
   <view class="mainView">
     <view class="profile">
-      <image src="{{userInfo.avatarUrl?userInfo.avatarUrl:'/assets/icon_r/xingbie.png'}}" />
-      <view>
+      <image mode="widthFix" src="{{userInfo.avatarUrl?userInfo.avatarUrl:'/assets/icon_r/xingbie.png'}}" />
+      <view class="userMsg">
         <text>{{userInfo.userName}}</text>
+        <view class="userInfo">
+          <text>EXP:{{1}}</text>
+          <view bind:tap="bodyInfo"><text>健康数据</text>
+            <van-icon name="records" color="#335274" />
+          </view>
+        </view>
       </view>
     </view>
     <view class="cus_calendar">
-      <van-calendar show-title="{{false}}" poppable="{{ false }}" min-date="{{ minDate }}" max-date="{{ maxDate }}" show-confirm="{{ false }}" class="calendar" row-height="30"/>
+      <van-calendar show-title="{{false}}" poppable="{{ false }}" min-date="{{ minDate }}" max-date="{{ maxDate }}" show-confirm="{{ false }}" class="calendar" row-height="30" />
     </view>
 
   </view>

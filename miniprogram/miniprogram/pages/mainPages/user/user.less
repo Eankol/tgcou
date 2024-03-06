@@ -4,39 +4,51 @@ page {
   display: flex;
   flex-direction: column;
 }
+
 .scrollarea {
   flex: 1;
   overflow-y: hidden;
 }
-.mainView{
+
+.mainView {
   margin: 5%;
-  .profile{
+  .profile {
     border-bottom: 2px #eee solid;
     border-radius: 8px;
     box-shadow: 0px 0px 2px #ddd;
-    padding:10px;
-    image{
-      width: 80px;
-      height:80px;
+    padding: 10px;
+    height: 60px;
+    image {
+      width: 23%;
+      max-width: 60px;
       display: inline-flex;
       //border: #ddd 1px solid;
       border-radius: 5px;
     }
-    view{
-      height: 80px;
-      display: inline-flex;
+
+    .userMsg {
+      display: inline-block;
       vertical-align: top;
-      padding-left: 20px;
-      text{
-        font-size: 18px;
-        font-weight: bold;
-        margin-top: 50px;
-        display: block;
-        color: #666;
+      padding: 2px 0px 0px 20px;
+      overflow: hidden;
+      font-size: 18px;
+      width: 68%;
+      color: #666;
+      .userInfo {
+        font-size: 14px;
+        line-height: 48px;
+        text {
+          display: inline-flex;
+        }
+        view {
+          display: inline-flex;
+          margin-left: 30%;
+        }
       }
     }
   }
 }
+
 .cus_calendar {
   margin-top: 20px;
 }

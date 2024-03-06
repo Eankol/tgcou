@@ -1,10 +1,12 @@
 // pages/mainPages/user/user.ts
+import userUtil from "../../../utils/userUtil"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    loginPage:"../../login/login",
     userInfo:{},
     minDate: new Date(new Date().getFullYear(), new Date().getMonth(), 1).getTime(),
     maxDate: new Date().getTime(),
@@ -14,7 +16,12 @@ Page({
       url:'../../log/log'
     })
   },
-
+  bodyInfo(){
+    userUtil.needLogin(wx.getStorageSync('TUser'),this.data.loginPage)
+    wx.navigateTo({
+      url:'children/bodyInfo/bodyInfo'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -26,21 +33,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-    let isLogin = wx.getStorageSync('TUser');
-    if(!isLogin){
-      wx.showToast({
-        title: '授权请求',
-        duration: 2000,
-        icon:'none',
-        complete:()=>{
-          setTimeout(()=>{
-            wx.navigateTo({
-              url:"../../login/login"
-            })
-          },2000)
-        }
-      })  
-    }  
+    userUtil.needLogin(wx.getStorageSync('TUser'),this.data.loginPage)
   },
 
   /**
